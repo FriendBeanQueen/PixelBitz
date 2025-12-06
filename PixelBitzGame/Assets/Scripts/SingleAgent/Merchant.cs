@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Merchant : MonoBehaviour
 {
     bool selling = false;
+    float distance;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,17 +17,15 @@ public class Merchant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
+
+        if (Input.GetKeyDown(KeyCode.F) && distance < 3)
         {
             selling = true;
         }
     }
 
-    void OnGUI()
-    {
-        if(selling)
-        {
 
-        }
-    }
+
+    
 }
