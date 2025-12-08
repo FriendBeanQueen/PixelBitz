@@ -203,14 +203,14 @@ public class CoopEnemyGroup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Player.Phealth -= 5;
+            Player.Phealth -= 7;
         }
     }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Player.Phealth -= 5;
+            Player.Phealth -= 7;
         }
     }
     //Code for this script exclusively
