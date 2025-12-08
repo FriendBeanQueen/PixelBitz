@@ -157,12 +157,13 @@ public class BuddyAI : MonoBehaviour
     void TryMelee(Transform target)
     {
         if (Time.time < nextMeleeTime) return;
+
         float d = Vector3.Distance(transform.position, target.position);
         if (d <= meleeRange)
         {
             nextMeleeTime = Time.time + meleeCooldown;
-            var eh = target.GetComponent<EnemyHealth>();
-            if (eh) eh.TakeDamage(meleeDamage);
+        ///compiles even if target doesn't have a specific health script.
+            target.SendMessage("TakeDamage", meleeDamage, SendMessageOptions.DontRequireReceiver);
         }
         else
         {
@@ -170,6 +171,7 @@ public class BuddyAI : MonoBehaviour
             agent.SetDestination(target.position);
         }
     }
+
 
     void OnDrawGizmosSelected()
     {
