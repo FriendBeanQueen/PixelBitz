@@ -1,79 +1,124 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.MPE;
 using UnityEngine;
-using static UnityEngine.Rendering.HighDefinition.CameraSettings;
+
+
+public class NPCAssignment
+{
+    public string roleclass;
+    private GameObject npc;
+    public NPCAssignment(string role, GameObject npcs)
+    {
+        roleclass = role;
+        npc = npcs;
+    }
+
+
+}
+
 
 public class TaskAllocationNPCs : MonoBehaviour
 {
     public GameObject player;
+    public GameObject joiningpopup;
     string role;
     float distance;
     bool joining = false;
-    public GameObject[] taskedNPCs = new GameObject[0];
+    bool joined = false;
+    public static int numOfNPCs = 0;
+    public List<NPCAssignment> taskedNPCs = new List<NPCAssignment>();
+    public GameObject[] npcchars;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
 
-        if (Input.GetKeyDown(KeyCode.F) && distance < 3)
+        for(int i=0; i<npcchars.Length; i++)
         {
-            joining = true;
+            int rolenum = (int)Random.Range(1, 4);
+            switch (rolenum)
+            {
+                case 1:
+                    role = "Melee";
+                    break;
+                case 2:
+                    role = "Mage";
+                    break;
+                case 3:
+                    role = "Ranger";
+                    break;
+                case 4:
+                    role = "Summoner";
+                    break;
+            }
+
+            taskedNPCs.Add(new NPCAssignment(role, npcchars[i]));
         }
 
-
-        int rolenum = (int)Random.Range(1, 4);
-        switch (rolenum)
-        {
-            case 1:
-                role = "Melee";
-                break;
-            case 2:
-                role = "Mage";
-                break;
-            case 3:
-                role = "Ranger";
-                break;
-            case 4:
-                role = "Summoner";
-                break;
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
+
+        if (Input.GetKeyDown(KeyCode.F) && distance < 3 && !joined)
+        {
+            joining = true;
+        }
+
+        if(joined)
+        {
+            Follow(distance);
+        }
+        else
+        {
+
+        }
     }
 
-    void JoinParty()
+    public void PartyJoin()
     {
-
+        joined = true;
     }
 
-    void NoParty()
+    public void NoParty()
     {
         joining = false;
     }
 
-    void Melee()
+    public void Follow(float distance)
     {
-        
+        if (distance > 5)
+        {
+            
+        }
+        else
+        {
+
+        }
     }
 
-    void Mage()
+    public void Attack(string role)
     {
+        switch(role)
+        {
+            case "Melee":
 
-    }
+                break;
+            case "Mage":
 
-    void Ranger()
-    {
+                break;
+            case "Ranger":
 
-    }
+                break;
+            case "Summoner":
 
-    void Summoner()
-    {
-
+                break;
+        }
     }
 }

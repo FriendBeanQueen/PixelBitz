@@ -15,4 +15,14 @@ public class Buddy : MonoBehaviour
     {
         
     }
+
+    void Follow()
+    {
+
+    }
+
+    void Attack()
+    {
+
+    }
 }

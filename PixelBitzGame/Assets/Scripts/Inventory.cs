@@ -14,10 +14,10 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI inv3;
     public TextMeshProUGUI inv4;
 
-    int inv1amount;
-    int inv2amount;
-    int inv3amount;
-    int inv4amount;
+    public static int inv1amount;
+    public static int inv2amount;
+    public static int inv3amount;
+    public static int inv4amount;
 
     float timer;
     bool itemused = false;

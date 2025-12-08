@@ -57,24 +57,28 @@ public class Merchant : MonoBehaviour
                 if(item1amount > 0)
                 {
                     item1amount--;
+                    Inventory.inv1amount++;
                 }
                 break;
             case 2:
                 if (item2amount > 0)
                 {
                     item2amount--;
+                    Inventory.inv2amount++;
                 }
                 break;
             case 3:
                 if (item3amount > 0)
                 {
                     item3amount--;
+                    Inventory.inv3amount++;
                 }
                 break;
             case 4:
                 if (item4amount > 0)
                 {
                     item4amount--;
+                    Inventory.inv4amount++;
                 }
                 break;
 
