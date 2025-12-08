@@ -19,14 +19,14 @@ public class SingleEnemy : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Player.Phealth -= 1;
+            Player.Phealth -= 5;
         }
     }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Player.Phealth -= 1;
+            Player.Phealth -= 5;
         }
     }
 }

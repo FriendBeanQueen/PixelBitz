@@ -10,6 +10,7 @@ public class TaskAllocationNPCs : MonoBehaviour
     string role;
     float distance;
     bool joining = false;
+    public GameObject[] taskedNPCs = new GameObject[0];
 
     // Start is called before the first frame update
     void Start()

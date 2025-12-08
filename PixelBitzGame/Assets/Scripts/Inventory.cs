@@ -18,6 +18,9 @@ public class Inventory : MonoBehaviour
     int inv2amount;
     int inv3amount;
     int inv4amount;
+
+    float timer;
+    bool itemused = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,15 @@ public class Inventory : MonoBehaviour
         inv2.text = "Attack Potion: " + (string)inv2amount.ToString();
         inv3.text = "Defense Potion: " + (string)inv3amount.ToString();
         inv4.text = ": " + (string)inv4amount.ToString();
+
+        while(itemused)
+        {
+            timer = timer + Time.deltaTime;
+            if(timer > 5)
+            {
+                itemused = false;
+            }
+        }
     }
 
     public void Close()
@@ -56,6 +68,8 @@ public class Inventory : MonoBehaviour
         if (inv1amount>0)
         {
             inv1amount--;
+            Player.Phealth += 5;
+
         }
     }
 
@@ -64,6 +78,11 @@ public class Inventory : MonoBehaviour
         if (inv2amount > 0)
         {
             inv2amount--;
+            itemused = true;
+
+            //increased attack for 5 seconds
+
+
         }
     }
 
@@ -72,6 +91,11 @@ public class Inventory : MonoBehaviour
         if (inv3amount > 0)
         {
             inv3amount--;
+            itemused = true;
+
+            //incrased defense for 5 seconds
+
+
         }
     }
 
@@ -80,7 +104,13 @@ public class Inventory : MonoBehaviour
         if (inv4amount > 0)
         {
             inv4amount--;
+            itemused = true;
+
+            //
+
+
         }
     }
+
 
 }
