@@ -200,13 +200,21 @@ public class SingleEnemy : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && Inventory.usedDP)
+        {
+            Player.Phealth -= 2;
+        }
+        if (other.gameObject.tag == "Player")
         {
             Player.Phealth -= 5;
         }
     }
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Player" && Inventory.usedDP)
+        {
+            Player.Phealth -= 2;
+        }
         if (collision.gameObject.tag == "Player")
         {
             Player.Phealth -= 5;

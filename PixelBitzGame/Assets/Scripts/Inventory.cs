@@ -21,6 +21,10 @@ public class Inventory : MonoBehaviour
 
     float timer;
     bool itemused = false;
+    public static bool usedDP = false;
+    public static bool usedAP = false;
+    public static bool usedSP = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +42,7 @@ public class Inventory : MonoBehaviour
         inv1.text = "Life Potion: " + (string)inv1amount.ToString();
         inv2.text = "Attack Potion: " + (string)inv2amount.ToString();
         inv3.text = "Defense Potion: " + (string)inv3amount.ToString();
-        inv4.text = ": " + (string)inv4amount.ToString();
+        inv4.text = "Speed Potion: " + (string)inv4amount.ToString();
 
         while(itemused)
         {
@@ -46,6 +50,9 @@ public class Inventory : MonoBehaviour
             if(timer > 5)
             {
                 itemused = false;
+                usedAP = false;
+                usedDP = false;
+                usedSP = false;
             }
         }
     }
@@ -79,7 +86,7 @@ public class Inventory : MonoBehaviour
         {
             inv2amount--;
             itemused = true;
-
+            usedAP = true;
             //increased attack for 5 seconds
 
 
@@ -92,21 +99,21 @@ public class Inventory : MonoBehaviour
         {
             inv3amount--;
             itemused = true;
-
+            usedDP = true;
             //incrased defense for 5 seconds
 
 
         }
     }
 
-    public void UseInv4()
+    public void UseSP()
     {
         if (inv4amount > 0)
         {
             inv4amount--;
             itemused = true;
-
-            //
+            usedSP = true;
+            //increased speed for 5 seconds
 
 
         }

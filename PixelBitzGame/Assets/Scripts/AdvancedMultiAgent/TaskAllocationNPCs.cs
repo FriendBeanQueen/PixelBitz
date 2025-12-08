@@ -112,28 +112,28 @@ public class TaskAllocationNPCs : MonoBehaviour
 
                 break;
             case "Mage":
-                GameObject instantiatedProjectile = Instantiate(item, shotspawn.transform.position, shotspawn.transform.rotation) as GameObject;
-                instantiatedProjectile.SetActive(true);
-                float speed = 15;
-                //instantiatedProjectile.transform.position += instantiatedProjectile.transform.forward * speed * Time.deltaTime;
-                instantiatedProjectile.GetComponent<Rigidbody>().velocity = instantiatedProjectile.transform.forward * speed;
-                Destroy(instantiatedProjectile, 5f);
+                //GameObject instantiatedProjectile = Instantiate(item, shotspawn.transform.position, shotspawn.transform.rotation) as GameObject;
+                //instantiatedProjectile.SetActive(true);
+                //float speed = 15;
+                ////instantiatedProjectile.transform.position += instantiatedProjectile.transform.forward * speed * Time.deltaTime;
+                //instantiatedProjectile.GetComponent<Rigidbody>().velocity = instantiatedProjectile.transform.forward * speed;
+                //Destroy(instantiatedProjectile, 5f);
                 break;
             case "Ranger":
-                GameObject instantiatedProjectile = Instantiate(item, shotspawn.transform.position, shotspawn.transform.rotation) as GameObject;
-                instantiatedProjectile.SetActive(true);
-                float speed = 15;
-                //instantiatedProjectile.transform.position += instantiatedProjectile.transform.forward * speed * Time.deltaTime;
-                instantiatedProjectile.GetComponent<Rigidbody>().velocity = instantiatedProjectile.transform.forward * speed;
-                Destroy(instantiatedProjectile, 5f);
+                //GameObject instantiatedProjectile = Instantiate(item, shotspawn.transform.position, shotspawn.transform.rotation) as GameObject;
+                //instantiatedProjectile.SetActive(true);
+                //float speed = 15;
+                ////instantiatedProjectile.transform.position += instantiatedProjectile.transform.forward * speed * Time.deltaTime;
+                //instantiatedProjectile.GetComponent<Rigidbody>().velocity = instantiatedProjectile.transform.forward * speed;
+                //Destroy(instantiatedProjectile, 5f);
                 break;
             case "Summoner":
-                GameObject instantiatedProjectile = Instantiate(item, shotspawn.transform.position, shotspawn.transform.rotation) as GameObject;
-                instantiatedProjectile.SetActive(true);
-                float speed = 15;
-                //instantiatedProjectile.transform.position += instantiatedProjectile.transform.forward * speed * Time.deltaTime;
-                instantiatedProjectile.GetComponent<Rigidbody>().velocity = instantiatedProjectile.transform.forward * speed;
-                Destroy(instantiatedProjectile, 5f); 
+                //GameObject instantiatedProjectile = Instantiate(item, shotspawn.transform.position, shotspawn.transform.rotation) as GameObject;
+                //instantiatedProjectile.SetActive(true);
+                //float speed = 15;
+                ////instantiatedProjectile.transform.position += instantiatedProjectile.transform.forward * speed * Time.deltaTime;
+                //instantiatedProjectile.GetComponent<Rigidbody>().velocity = instantiatedProjectile.transform.forward * speed;
+                //Destroy(instantiatedProjectile, 5f); 
                 break;
         }
     }

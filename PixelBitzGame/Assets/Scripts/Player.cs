@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public float speed = 20f;
     Rigidbody rb;
-    Vector3 move;
+    Vector3 move, velocity;
     Quaternion rotate = Quaternion.identity;
     float rotateY = 0;
     public static int Phealth = 100;
@@ -18,6 +18,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         PlayerHealth(this.gameObject);
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    //attack
+        //}
+
     }
     void FixedUpdate()
     {
@@ -25,7 +31,13 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxis("Vertical") * 1;
         move.Set(vertical, 0f, 0);
         move.Normalize();
-        Vector3 velocity = rb.transform.forward * vertical * speed * Time.deltaTime;
+        if (Inventory.usedSP)
+        {
+            velocity = rb.transform.forward * vertical * speed * 2 * Time.deltaTime;
+        }
+        else {
+            velocity = rb.transform.forward * vertical * speed * Time.deltaTime;
+        }
         rb.position += velocity;
         rotateY += horizontal * 3;
         rb.transform.rotation = Quaternion.Euler(0, rotateY, 0);
