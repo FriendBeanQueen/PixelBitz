@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.Rendering.HighDefinition.CameraSettings;
+using TMPro;
 
 public class NPCs : MonoBehaviour
 {
-    bool talking = false;
     float distance;
     public GameObject player;
     public GameObject npctext;
+
+    public TextMeshPro npcname;
+    public TextMeshPro npcdescription;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //npcname = RandomName();
+        //npcdescription = RandomText();
+
+
     }
 
     // Update is called once per frame
@@ -23,22 +29,31 @@ public class NPCs : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && distance < 3)
         {
-            talking = true;
+            npctext.SetActive(true);
         }
     }
 
-    void Close()
+    public void Close()
     {
-        talking = false;
+        npctext.SetActive(false);
     }
 
-    void RandomText()
-    {
+    //string RandomText()
+    //{
+    //    string randomtext = "";
 
-    }
 
-    void RandomName()
-    {
 
-    }
+
+    //    return randomtext;
+    //}
+
+    //string RandomName()
+    //{
+    //    string name = "";
+
+
+
+    //    return name;
+    //}
 }

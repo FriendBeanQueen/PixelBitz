@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class Merchant : MonoBehaviour
 {
-    bool selling = false;
     float distance;
     public GameObject player;
     public GameObject sellingmenu;
 
-    public GameObject item1;
-    public GameObject item2;
-    public GameObject item3;
-    public GameObject item4;
+    public TextMeshProUGUI item1;
+    public TextMeshProUGUI item2;
+    public TextMeshProUGUI item3;
+    public TextMeshProUGUI item4;
 
     int item1amount;
     int item2amount;
@@ -35,23 +35,49 @@ public class Merchant : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && distance < 3)
         {
-            selling = true;
+            sellingmenu.SetActive(true);
         }
+
+        item1.text = (string)item1amount.ToString();
+        item2.text = (string)item2amount.ToString();
+        item3.text = (string)item3amount.ToString();
+        item4.text = (string)item4amount.ToString();
     }
 
-    void Close()
+    public void Close()
     {
-        selling = false;
+        sellingmenu.SetActive(false);
     }
 
-    void Buy(int amount)
+    public void Buy(int itemnum)
     {
-        if (amount == 0)
+        switch (itemnum)
         {
-            amount = 0;
-        }
-        else {
-            amount--;
+            case 1:
+                if(item1amount > 0)
+                {
+                    item1amount--;
+                }
+                break;
+            case 2:
+                if (item2amount > 0)
+                {
+                    item2amount--;
+                }
+                break;
+            case 3:
+                if (item3amount > 0)
+                {
+                    item3amount--;
+                }
+                break;
+            case 4:
+                if (item4amount > 0)
+                {
+                    item4amount--;
+                }
+                break;
+
         }
     }
     
